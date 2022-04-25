@@ -6,12 +6,17 @@ class UserService{
     }
 
     static getInfo(User){
-        const lista = [User.id, User.userName, User.name, "Sin bio"];
-        return lista;
+        const list_f = [User.id, User.userName, User.name, "Sin bio"];
+        return list_f;
     }
 
     static updateUserName(User, newUserName){
-        User.userName = newUserName;
+        return User.userName = newUserName;
+    }
+
+    static getAllUserNames([User1, User2, User3]){
+        const list_f = [User1.userName, User2.userName, User3.userName];
+        return list_f;
     }
 }
 
