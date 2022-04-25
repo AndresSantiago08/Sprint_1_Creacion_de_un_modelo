@@ -13,8 +13,16 @@ class User {
         return this.userName;
     }
 
+    set setUserName(newUserName){
+        this.userName = newUserName;
+    }
+
     get getBio(){
         return this.bio;
+    }
+
+    set setBio(newBio){
+        this.bio = newBio;
     }
 
     get getDateCreated(){
