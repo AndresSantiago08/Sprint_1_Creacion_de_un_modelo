@@ -9,6 +9,10 @@ class UserService{
         const lista = [User.id, User.userName, User.name, "Sin bio"];
         return lista;
     }
+
+    static updateUserName(User, newUserName){
+        User.userName = newUserName;
+    }
 }
 
 
