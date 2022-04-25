@@ -1,12 +1,12 @@
+//Clase para requerimiento 2
 class User {
-    constructor(id, userName, name, bio, dateCreated, lastUpdated){
+    constructor(id, userName, name, bio){
         this.id = id;
         this.userName = userName;
         this.name = name;
         this.bio = bio;
-        this.dateCreated = dateCreated;
-        this.lastUpdated = lastUpdated;
+        this.dateCreated = new Date();
+        this.lastUpdated = new Date();
     }
 }
-
 module.exports = User;
