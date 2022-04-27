@@ -1,21 +1,30 @@
-const UserService = require("./../../app/services/UserService");
+const UserService = require('./../../app/services/UserService');
 
-class UserView{    
-    static createUser(payload){    
+class UserView extends UserService{    
+    constructor(id, userName, name){
+        super(id, userName, name)
+    }
 
+    static createUser(payload){   
+        console.log(payload.id) 
         if (payload == null){
-            return {error: 'payload no existe'}
+            const user = {id: "", userName: "", name: "", error: 'payload no existe'};
+            return user
         }
         else if (payload.userName == null || payload.name == null || payload.id == null){
-            return {error: "necesitan tener un valor válido"}
+            const user = {id: "", userName: "", name: "", error: "necesitan tener un valor válido"};
+            return user
         }
-        else if (payload.userName !== 'string' || payload.name !== 'string' || payload.userName === "" || payload.name === "" ||
-            payload.id === "" || payload.id === 'string')
-        {
-            return {error: "necesitan tener un valor válido"}
+        else if (payload.userName !== 'string' || payload.name !== 'string' || payload.userName === "" || 
+        payload.name === "" || payload.id === ""){
+            const user = {id: "", userName: "", name: "", error: "necesitan tener un valor válido"};
+            return user
         }
         else{
-            return UserService.create(payload.id, payload.userName, payload.name)
+            const userS = this.create(payload.id, payload.userName, payload.name);
+            //const user = {id: userS.id, userName: userS.userName, name: userS.name, error: ""}
+            const user = {id: userS.id, userName: "userS.userName", name: userS.name, error: ""}
+            return user
         }
     }
 }
