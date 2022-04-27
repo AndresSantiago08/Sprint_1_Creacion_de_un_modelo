@@ -1,12 +1,9 @@
 const UserService = require('./../../app/services/UserService');
 
-class UserView extends UserService{    
-    constructor(id, userName, name){
-        super(id, userName, name)
-    }
+class UserView{    
 
     static createUser(payload){   
-        console.log(payload.id) 
+
         if (payload == null){
             const user = {id: "", userName: "", name: "", error: 'payload no existe'};
             return user
@@ -21,8 +18,7 @@ class UserView extends UserService{
             return user
         }
         else{
-            const userS = this.create(payload.id, payload.userName, payload.name);
-            //const user = {id: userS.id, userName: userS.userName, name: userS.name, error: ""}
+            const userS = UserService.create(payload.id, payload.userName, payload.name);
             const user = {id: userS.id, userName: "userS.userName", name: userS.name, error: ""}
             return user
         }
